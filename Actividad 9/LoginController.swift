@@ -10,52 +10,52 @@ import UIKit
 
 class LoginController:UIViewController
 {
-    var System:String?
-    var User:String?
-    var Result:String?
+    var System:String? //global variable
+    var User:String? //global variable
+    var Result:String? //global variable
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 90/255 , green: 90/255, blue: 90/255, alpha: 1)
-        setupObj()
+        setupObj() //insert object into view
     }
     
-    let RockButton : UIButton =
+    let RockButton : UIButton = //create button rock
     {
         let RockButton = UIButton(type: .system)
         RockButton.setTitle("Rock", for: .normal)
         RockButton.translatesAutoresizingMaskIntoConstraints = false
-        RockButton.addTarget(self, action: #selector(buttonRock(sender:)), for: .touchUpInside)
+        RockButton.addTarget(self, action: #selector(buttonRock(sender:)), for: .touchUpInside) //add actions
         RockButton.backgroundColor = UIColor(red: 102/255, green: 51/255, blue: 0/255, alpha: 1)
         RockButton.setTitleColor(.white, for: .normal)
       
         return RockButton
         
     }()
-    let PaperButton : UIButton =
+    let PaperButton : UIButton =    //create button paper
     {
         let PaperButton = UIButton(type: .system)
         PaperButton.setTitle("Scissors", for: .normal)
         PaperButton.translatesAutoresizingMaskIntoConstraints = false
-        PaperButton.addTarget(self, action: #selector(buttonPaper(sender:)), for: .touchUpInside)
+        PaperButton.addTarget(self, action: #selector(buttonPaper(sender:)), for: .touchUpInside) //add actions
         PaperButton.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 220/255, alpha: 1)
         PaperButton.setTitleColor(.black, for: .normal)
         return PaperButton
         
     }()
 
-    let ScissorsButton : UIButton =
+    let ScissorsButton : UIButton =  //create button scissors
     {
         let ScissorsButton = UIButton(type: .system)
         ScissorsButton.setTitle("Paper", for: .normal)
         ScissorsButton.translatesAutoresizingMaskIntoConstraints = false
-        ScissorsButton.addTarget(self, action: #selector(buttonScissors(sender:)), for: .touchUpInside)
+        ScissorsButton.addTarget(self, action: #selector(buttonScissors(sender:)), for: .touchUpInside) //add actions
         ScissorsButton.backgroundColor = UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)
         ScissorsButton.setTitleColor(.white, for: .normal)
         return ScissorsButton
         
     }()
 
-    func matchCalcule(option:Int)
+    func matchCalcule(option:Int)   //get result about the game rock, paper and scissors
     {
         let Random = Int(arc4random_uniform(3))
        
@@ -136,26 +136,28 @@ class LoginController:UIViewController
     }
     
     func buttonRock(sender: UIButton!) { //Action from button
-             let changeviewcontroller: ChangeViewController = ChangeViewController()
+             let changeviewcontroller: ChangeViewController = ChangeViewController() ///instance another UIViewController from file .swift
         matchCalcule(option: 0)
-        changeviewcontroller.SystemLabel.text = "System: "+System!
+        changeviewcontroller.SystemLabel.text = "System: "+System! //insert values in label from another UIViewController
         changeviewcontroller.YouLabel.text = "You: " + User!
         changeviewcontroller.WinnerLabel.text = "Result: " + Result!
          present(changeviewcontroller, animated: true, completion: nil)
      
     }
     func buttonPaper(sender: UIButton!) { //Action from button
-        let changeviewcontroller: ChangeViewController = ChangeViewController()
+        let changeviewcontroller: ChangeViewController = ChangeViewController() ///instance another UIViewController from file .swift
         matchCalcule(option: 1)
-        changeviewcontroller.SystemLabel.text = "System: "+System!
+        changeviewcontroller.SystemLabel.text = "System: "+System! //insert values in label from another UIViewController
+
         changeviewcontroller.YouLabel.text = "You: " + User!
         changeviewcontroller.WinnerLabel.text = "Result: " + Result!
         present(changeviewcontroller, animated: true, completion: nil)
     }
     func buttonScissors(sender: UIButton!) { //Action from button
-        let changeviewcontroller: ChangeViewController = ChangeViewController()
+        let changeviewcontroller: ChangeViewController = ChangeViewController() ///instance another UIViewController from file .swift
         matchCalcule(option: 2)
-        changeviewcontroller.SystemLabel.text = "System: "+System!
+        changeviewcontroller.SystemLabel.text = "System: "+System! //insert values in label from another UIViewController
+
         changeviewcontroller.YouLabel.text = "You: " + User!
         changeviewcontroller.WinnerLabel.text = "Result: " + Result!
         present(changeviewcontroller, animated: true, completion: nil)

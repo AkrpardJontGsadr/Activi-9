@@ -65,11 +65,7 @@ class ChangeViewController : UIViewController
     }()
     
     func buttonRock(sender: UIButton!) { //Action from button
-        //func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //  let destVC : ChangeViewController = segue.destination as! ChangeViewController
-        // destVC.dataFromFirst = "Hello there!"
-        //}
-        let logincontroller: LoginController = LoginController()
+        let logincontroller: LoginController = LoginController() //return LoginController
         present(logincontroller, animated: true, completion: nil)
     }
     
